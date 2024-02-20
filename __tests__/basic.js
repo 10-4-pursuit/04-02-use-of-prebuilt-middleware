@@ -1,6 +1,6 @@
 // tests/server.test.js
 const request = require('supertest');
-const app = require('../server'); // Adjust the path as needed to import your Express app
+const app = require('../index'); // Adjust the path as needed to import your Express app
 
 describe('Express Middleware Integration', () => {
   
