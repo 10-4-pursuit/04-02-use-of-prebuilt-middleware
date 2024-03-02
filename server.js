@@ -15,8 +15,12 @@ app.post('/submit-data', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
+});
+
+afterAll((done) => {
+    server.close(done);
 });
 
 module.exports = app;
