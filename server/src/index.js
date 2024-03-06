@@ -1,16 +1,18 @@
 const express = require("express");
-const cors = require('cors');
+const cors = require('cors'); 
 const app = express();
 
 //enable cors
 app.use(cors());
 
 // Parse incoming JSON payloads
-// app.use(express.json());
+app.use(express.json());
 
+
+//sends a message to this endpoint
 app.get('/api/message', (req, res) => {
   try {
- // Set the content type header to 'application/json'
+
  res.setHeader('Content-Type', 'application/json');
     
   res.send({ message: 'You are a genius!' });
@@ -21,12 +23,14 @@ app.get('/api/message', (req, res) => {
 
 // Test route to log request body and respond with a message
 app.post('/submit-data', (req, res) => {
-  console.log('Received data:', req.body);
-  res.send({ message: 'Data received successfully!' });
+const body = req.body
+  console.log('Received data:', body);
+  return res.send({ 
+    message: 'Data received successfully!',
+    key: 'value'
+ });
 });
 
-// app.get('/', (req, res) => {
-//     res.send('Save The World!');
-//   });
+
 
   module.exports= app
